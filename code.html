@@ -202,7 +202,6 @@
                         </button>
 </div>
 <!-- Stickers -->
-<div class="absolute -bottom-2 -left-4 bg-primary text-white p-2 font-black text-xs uppercase sticker-rotate-neg-2 shadow-sm">SHIP IT!</div>
 <div class="absolute top-1/2 -right-6 bg-secondary-container text-on-secondary-container px-3 py-1 font-black text-xs uppercase -rotate-90 border-2 border-on-surface">HACK CLUB</div>
 </div>
 </div>
@@ -248,6 +247,10 @@
 <h3 class="font-headline font-bold text-2xl uppercase mb-2">5" Hand-Pressed Vinyl</h3>
 <p class="text-surface-variant opacity-80">A physical, tangible record of your algorithmic music. Every record is custom pressed.</p>
 </div>
+<div class="relative bg-surface-variant/10 p-6 border-l-4 border-primary">
+<h3 class="font-headline font-bold text-2xl uppercase mb-2">Bonus: Custom Sticker Art</h3>
+<p class="text-surface-variant opacity-80">Participants can optionally design their own sticker artwork, and we will place it on their vinyl.</p>
+</div>
 <img class="w-full h-48 object-cover grayscale brightness-125 border-4 border-secondary-fixed sticker-rotate-1" data-alt="close up of a custom vinyl record being pressed on a professional lathe machine with metal details and reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchQUZVc2ftNIXdbvAoc3dwE1MyDE4vTRiT65oPJbiPra0bN7DEom8FTFocBmhO8QbsMliS5w8HtTKN8n7_PSEfV76BIDxA8kJH99R7H5OH4pBAZzSuqTOWqftZR8z8qaUvYHQckM4uF73sBhk5yROsE4Y6GhbWI0oznMCEwGicGp9zz4Cz6o5MakW6xhpSi7OfWg59VMNpen0YArxf8W0u0YM0mFaXgNTffO6yryVJF1DwVnMudTKUncpLHB9vu-sqiiRKJZd4AY"/>
 <p class="font-headline font-black text-4xl leading-none text-secondary-fixed uppercase">DELIVERED TO YOUR DOOR. FREE.</p>
 </div>
@@ -265,7 +268,7 @@
           START HERE <span class="h-1 flex-grow bg-on-surface"></span>
 </h2>
 <p class="text-xl text-on-surface-variant max-w-4xl leading-tight">
-          Use this exact flow to go from zero to shipped vinyl. Learn Sonic Pi, compose your track, package your repo, and submit with confidence.
+          Use this exact flow to go from zero to shipped vinyl. Build in Visual Studio Code with the Sonic Pi extension, track your music time with Hackatime, then submit with confidence.
         </p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
@@ -274,9 +277,10 @@
 <h3 class="font-headline font-black text-3xl uppercase leading-none mb-5 text-primary">Install + Learn Sonic Pi</h3>
 <ul class="space-y-4 text-on-surface-variant font-medium leading-snug">
 <li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">1</span><span>Install Sonic Pi from the official download page for macOS, Windows, or Linux.</span></li>
-<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">2</span><span>Work through the built-in tutorial panel and run the code as you read.</span></li>
-<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">3</span><span>Practice <span class="font-mono">live_loop</span>, <span class="font-mono">sample</span>, <span class="font-mono">use_synth</span>, and <span class="font-mono">sleep</span> until you can build a short groove.</span></li>
-<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Save your first playable version as <span class="font-mono">main.rb</span> so you have a baseline track.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">2</span><span>Use Visual Studio Code with the Sonic Pi extension for writing your music code.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">3</span><span>Keep Hackatime running so your coding time is tracked at hackatime.hackclub.com.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Work through the built-in tutorial panel and practice <span class="font-mono">live_loop</span>, <span class="font-mono">sample</span>, <span class="font-mono">use_synth</span>, and <span class="font-mono">sleep</span>.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">5</span><span>Save your first playable version as <span class="font-mono">main.rb</span> so you have a baseline track.</span></li>
 </ul>
 <div class="mt-8 bg-secondary-container p-4 border-2 border-on-secondary-container/20">
 <p class="font-headline font-bold text-sm uppercase tracking-wider text-on-secondary-container mb-2">Sonic Pi Sites</p>
@@ -285,6 +289,7 @@
 <a class="block text-secondary underline decoration-wavy" href="https://sonic-pi.net/tutorial.html">Official Sonic Pi tutorial</a>
 <a class="block text-secondary underline decoration-wavy" href="https://sonic-pi.mehackit.org/">Mehackit quickstart lessons</a>
 <a class="block text-secondary underline decoration-wavy" href="https://in-thread.sonic-pi.net/">Sonic Pi community forum</a>
+<a class="block text-secondary underline decoration-wavy" href="https://hackatime.hackclub.com">Hackatime dashboard</a>
 </div>
 </div>
 </article>
@@ -313,7 +318,8 @@
 <li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">1</span><span>Create a public GitHub repository with your final Sonic Pi code and exported audio.</span></li>
 <li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">2</span><span>Add a README that explains inspiration, technique, and how to run your track locally.</span></li>
 <li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">3</span><span>Use the Vine example submission layout so your repo is easy to review quickly.</span></li>
-<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Submit the form with your repo link and audio, then wait for pressing and shipping updates.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Hit at least 6 hours of tracked music coding time in Hackatime to qualify for a free vinyl.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">5</span><span>Submit the form with your repo link and audio, then wait for pressing and shipping updates.</span></li>
 </ul>
 <div class="mt-8 pt-6 border-t border-secondary-fixed/35 space-y-2">
 <a class="block bg-secondary text-on-secondary text-center py-3 font-headline font-black uppercase text-base hover:scale-[1.01] transition-transform" href="https://forms.fillout.com/t/tZ1CDPD5Brus">Open Submission Form</a>
@@ -328,6 +334,9 @@
 <p>[ ] Public GitHub repo with Sonic Pi code</p>
 <p>[ ] Audio export included and playable</p>
 <p>[ ] README with concept + run instructions</p>
+<p>[ ] 6+ hours of music coding tracked in Hackatime</p>
+<p>[ ] Optional: custom vinyl sticker artwork</p>
+<p>[ ] If you design sticker art, track artwork time in Lapse</p>
 <p>[ ] Form submitted with correct links</p>
 <p>[ ] Repo is clearly named and organized</p>
 </div>
@@ -452,11 +461,20 @@
 </details>
 <details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
 <summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>How is time tracked?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+            Music coding time is tracked through Hackatime at hackatime.hackclub.com while you work in Visual Studio Code with the Sonic Pi extension. If you create sticker artwork, you can track that art time in Lapse.
+          </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
 <span>What exactly is required in my submission?</span>
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
 <div class="px-6 pb-6 text-on-surface-variant font-medium">
-            Include a public GitHub repo with your Sonic Pi code, an audio export of your track, and a README that explains your song idea!
+            Include a public GitHub repo with your Sonic Pi code, an audio export of your track, and a README that explains your song idea. You also need at least 6 hours of tracked music time in Hackatime to receive the free vinyl.
           </div>
 </details>
 </div>
@@ -497,15 +515,12 @@
 </main>
 <!-- Footer -->
 <footer class="bg-[#e5e2e1] w-full mt-20 border-t-4 border-[#C6463D]">
-<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6 max-w-[1440px] mx-auto">
-<div class="text-lg font-black text-stone-900 font-headline uppercase tracking-widest">
-                VINE <span class="text-primary italic"></span>
-</div>
-<div class="flex gap-8 font-['Be_Vietnam_Pro'] text-sm font-bold uppercase tracking-widest">
+<div class="grid grid-cols-1 md:grid-cols-3 items-center w-full px-8 py-12 gap-6 max-w-[1440px] mx-auto">
+<div class="flex justify-center md:justify-start gap-8 font-['Be_Vietnam_Pro'] text-sm font-bold uppercase tracking-widest">
 <a class="text-stone-500 hover:text-[#436824] hover:italic transition-all hover:translate-y-[-2px]" href="https://github.com/n1k0s1/vine">GitHub</a>
 <a class="text-stone-500 hover:text-[#436824] hover:italic transition-all hover:translate-y-[-2px]" href="https://hackclub.com/slack">Hack Club Slack</a>
 </div>
-<div class="text-stone-500 font-bold text-[10px] tracking-widest md:text-xs">
+<div class="text-stone-500 font-bold text-[10px] tracking-widest md:text-xs text-center">
         Made with ♥ by <a class="hover:text-[#436824] transition-colors" href="https://github.com/n1k0s1">@Niko</a>
             </div>
 </div>
