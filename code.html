@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vine - Code Your Vinyl</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#c3f09b",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#74532f",
+                    "surface-container-high": "#eae7e7",
+                    "tertiary-fixed": "#ffdcbc",
+                    "outline": "#8c716d",
+                    "secondary-fixed-dim": "#a7d382",
+                    "outline-variant": "#e0bfbb",
+                    "inverse-on-surface": "#f3f0ef",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#fff7f2",
+                    "primary-container": "#c6463d",
+                    "on-primary-container": "#fff6f5",
+                    "on-secondary-fixed": "#0c2000",
+                    "on-surface": "#1c1b1b",
+                    "on-primary-fixed-variant": "#8a1a17",
+                    "on-primary-fixed": "#410002",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dcd9d9",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "background": "#fcf9f8",
+                    "secondary-container": "#c0ed98",
+                    "inverse-primary": "#ffb4ab",
+                    "surface-variant": "#e5e2e1",
+                    "primary": "#a52e28",
+                    "surface-container-low": "#f6f3f2",
+                    "inverse-surface": "#313030",
+                    "on-secondary-container": "#476d27",
+                    "tertiary-container": "#8f6b45",
+                    "surface-container": "#f0eded",
+                    "surface-bright": "#fcf9f8",
+                    "surface-tint": "#ac332c",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffdad6",
+                    "on-secondary-fixed-variant": "#2c500c",
+                    "tertiary-fixed-dim": "#ebbe92",
+                    "on-tertiary-fixed-variant": "#5f401e",
+                    "on-tertiary-fixed": "#2c1700",
+                    "secondary": "#436824",
+                    "primary-fixed-dim": "#ffb4ab",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#58413e",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": [
+                            "Space Grotesk"
+                    ],
+                    "body": [
+                            "Be Vietnam Pro"
+                    ],
+                    "label": [
+                            "Space Grotesk"
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle
+    }
+.glitch-text {
+    position: relative;
+    display: inline-block
+    }
+.glitch-text::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 2px 0 #c3f09b;
+    top: 0;
+    color: #a52e28;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    z-index: -1
+    }
+.vine-border {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L10 10 L20 20 L30 10 L40 20' stroke='%23436824' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    height: 10px
+    }
+.noise-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAtxpTEYzzlWWAN9SKPJ4LpNANFrL06V7BK1bceMK7tLioYcKlCV3LvxjWXJZU3e_dIxxZpHSVvnzzfiB8SGOZooF2LIcvLepHduRLy1679zBXQpDkozrBccaOTYNaDRWW_tJ4vL8pU5zqQRrafGyfzQMN3IxfHSgatZ4iCAYq1PUb4k4x_lNBiaNhxcNhRtMm1zMKyYzuaZHAs68fsNHJmNjKXVRhpbxsH_gqNUJPdWkVeu4tGZ9mqN3OUnRYx8nVvp0TsuPZWagA)
+    }
+.sticker-rotate-1 {
+    transform: rotate(-1deg)
+    }
+.sticker-rotate-2 {
+    transform: rotate(2deg)
+    }
+.sticker-rotate-neg-2 {
+    transform: rotate(-2.5deg)
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary-container selection:text-on-secondary-container noise-bg">
+<!-- Top Navigation Anchor -->
+<header class="bg-[#fcf9f8] opacity-70 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[4px_4px_0px_0px_rgba(198,70,61,0.2)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+<div class="text-4xl font-black text-[#C6463D] italic hover:skew-x-6 transition-transform cursor-pointer font-['Space_Grotesk'] tracking-tighter uppercase">
+                VINE<span class="text-secondary text-2xl not-italic">🌿</span>
+</div>
+<nav class="hidden md:flex gap-8 font-['Space_Grotesk'] font-bold tracking-tighter uppercase">
+<a class="header-tab-button text-stone-700 hover:bg-[#C6463D] hover:text-white hover:-rotate-1 transition-all px-2" href="#get-started">Get started</a>
+<a class="header-tab-button text-stone-700 hover:bg-[#C6463D] hover:text-white hover:-rotate-1 transition-all px-2" href="#showcase">Showcase</a>
+<a class="header-tab-button text-stone-700 hover:bg-[#C6463D] hover:text-white hover:-rotate-1 transition-all px-2" href="#faq">FAQ</a>
+</nav>
+<a class="header-tab-button bg-primary text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-tighter hover:bg-[#C6463D] hover:text-white hover:-rotate-1 transition-all scale-95 active:scale-90" href="https://forms.fillout.com/t/tZ1CDPD5Brus" target="_blank">
+                Ship Your Track
+            </a>
+</div>
+<div class="bg-[#436824] h-1 w-full"></div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 overflow-hidden">
+<!-- Hero Section -->
+<section class="py-20 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8 sticker-rotate-neg-2">
+<div class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1 font-headline font-black uppercase text-sm tracking-widest sticker-rotate-2">
+                    A HACK CLUB YSWS
+                </div>
+<h1 class="font-headline font-black text-6xl md:text-8xl leading-[0.9] tracking-tighter uppercase text-primary">
+                    VINE: <br/>
+<span class="glitch-text text-on-surface" data-text="CODE A RECORD.">CODE A RECORD.</span>
+</h1>
+<p class="text-xl md:text-2xl font-medium max-w-xl text-on-surface-variant leading-tight">
+                    Algorithmic music pressed onto 5" hand-pressed vinyl. No DAWs. No instruments. Just code.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="bg-primary text-on-primary px-10 py-5 text-2xl font-headline font-black uppercase hover:translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#c3f09b] transition-all" href="#get-started">
+                        Get Started
+                    </a>
+<a class="border-4 border-on-surface px-10 py-5 text-2xl font-headline font-black uppercase hover:bg-on-surface hover:text-surface transition-all" href="https://github.com/N1k0s1/vine-example-submission">
+                        View Example
+                    </a>
+</div>
+</div>
+<!-- Central Feature: Vinyl Machine -->
+<div class="lg:col-span-5 relative">
+<div class="bg-surface-container-high p-8 shadow-[12px_12px_0px_0px_#1c1b1b] relative overflow-hidden sticker-rotate-1 group">
+<div class="absolute top-4 right-4 flex gap-2">
+<div class="w-4 h-4 bg-error rounded-full"></div>
+<div class="w-4 h-4 bg-secondary rounded-full"></div>
+</div>
+<div class="relative aspect-square bg-transparent flex items-center justify-center mb-8 rounded-full select-none cursor-grab active:cursor-grabbing touch-none" id="vinyl-container">
+<div class="relative w-4/5 h-4/5 flex items-center justify-center" id="vinyl-wrapper">
+<div class="absolute inset-0" id="turntable-static">
+<img alt="Turntable" class="w-full h-full object-cover shadow-2xl pointer-events-none" crossorigin="anonymous" id="turntable-image" src="https://static.vecteezy.com/system/resources/thumbnails/009/313/617/small/vinyl-record-vector-illustration-isolated-on-white-background-free-png.png"/>
+</div>
+<div class="absolute inset-0 pointer-events-none" id="vinyl-disc">
+<img alt="Vinyl Record" class="w-full h-full object-cover pointer-events-none" crossorigin="anonymous" id="vinyl-record" src="https://static.vecteezy.com/system/resources/thumbnails/009/313/617/small/vinyl-record-vector-illustration-isolated-on-white-background-free-png.png"/>
+<div class="absolute bg-primary rounded-full flex items-center justify-center border-4 border-on-surface z-10 pointer-events-none" id="vinyl-label">
+<span class="text-white text-[10px] md:text-xs font-black">VINE</span>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-10 w-2 h-32 bg-stone-400 origin-top rotate-45 border-r-2 border-on-surface pointer-events-none"></div>
+</div>
+<div class="space-y-4">
+<div class="bg-on-surface text-secondary-fixed p-4 font-mono text-sm space-y-2" id="now-playing-console">
+<p class="text-secondary" id="now-playing-file"># Playing: "euclidean_rhythms.rb"</p>
+<p class="text-secondary-fixed-dim text-xs uppercase tracking-wider" id="now-playing-meta"># @jason_codes • Euclidean Rhythms</p>
+<p data-now-playing-line="0">&gt; live_loop :vine do</p>
+<p class="pl-4" data-now-playing-line="1">&gt; sample :bd_haus, amp: 2</p>
+<p class="pl-4" data-now-playing-line="2">&gt; sleep 0.5</p>
+<p data-now-playing-line="3">&gt; end</p>
+<div class="pt-2">
+<div class="h-1.5 w-full bg-white/15" id="player-progress-track">
+<div class="h-full bg-secondary-fixed" id="player-progress-bar"></div>
+</div>
+<p class="text-[11px] mt-1 text-secondary-fixed-dim" id="player-time">00:00 / --:--</p>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-4 font-headline font-bold uppercase text-xl hover:scale-[1.02] active:scale-95 transition-transform flex items-center justify-center gap-2" id="shuffle-tracks-button" type="button">
+<span class="material-symbols-outlined">shuffle</span> SHUFFLE COMMUNITY TRACKS
+                        </button>
+</div>
+<!-- Stickers -->
+<div class="absolute -bottom-2 -left-4 bg-primary text-white p-2 font-black text-xs uppercase sticker-rotate-neg-2 shadow-sm">SHIP IT!</div>
+<div class="absolute top-1/2 -right-6 bg-secondary-container text-on-secondary-container px-3 py-1 font-black text-xs uppercase -rotate-90 border-2 border-on-surface">HACK CLUB</div>
+</div>
+</div>
+</section>
+<!-- "You Ship" / "We Ship" Bento Grid -->
+<section class="py-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- You Ship -->
+<div class="bg-surface-container-low p-10 border-t-8 border-primary">
+<h2 class="text-primary font-headline font-black text-5xl uppercase mb-6 tracking-tighter italic">YOU SHIP:</h2>
+<ul class="space-y-6">
+<li class="flex gap-4 items-start">
+<div class="bg-on-surface text-surface w-10 h-10 flex items-center justify-center flex-shrink-0 font-black">1</div>
+<div>
+<h3 class="font-headline font-bold text-xl uppercase">The Repo</h3>
+<p class="text-on-surface-variant">A public GitHub repository with your Sonic Pi code. Clean code or spaghetti, as long as it plays.</p>
+</div>
+</li>
+<li class="flex gap-4 items-start">
+<div class="bg-on-surface text-surface w-10 h-10 flex items-center justify-center flex-shrink-0 font-black">2</div>
+<div>
+<h3 class="font-headline font-bold text-xl uppercase">Live Audio</h3>
+<p class="text-on-surface-variant">A recording of your masterpiece. We need to hear what you coded before we press it.</p>
+</div>
+</li>
+<li class="flex gap-4 items-start">
+<div class="bg-on-surface text-surface w-10 h-10 flex items-center justify-center flex-shrink-0 font-black">3</div>
+<div>
+<h3 class="font-headline font-bold text-xl uppercase">The Documentation</h3>
+<p class="text-on-surface-variant">A README explaining your inspiration. Tell us the story behind the sounds.</p>
+</div>
+</li>
+</ul>
+<div class="mt-8 pt-8 border-t border-outline-variant opacity-30">
+<p class="font-mono text-sm uppercase tracking-widest text-primary">Status: Awaiting your code...</p>
+</div>
+</div>
+<!-- We Ship -->
+<div class="bg-on-surface p-10 text-surface border-t-8 border-secondary-fixed">
+<h2 class="text-secondary-fixed font-headline font-black text-5xl uppercase mb-6 tracking-tighter italic">WE SHIP:</h2>
+<div class="space-y-8">
+<div class="relative bg-surface-variant/10 p-6 border-l-4 border-secondary-fixed">
+<h3 class="font-headline font-bold text-2xl uppercase mb-2">5" Hand-Pressed Vinyl</h3>
+<p class="text-surface-variant opacity-80">A physical, tangible record of your algorithmic music. Every record is custom pressed.</p>
+</div>
+<img class="w-full h-48 object-cover grayscale brightness-125 border-4 border-secondary-fixed sticker-rotate-1" data-alt="close up of a custom vinyl record being pressed on a professional lathe machine with metal details and reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchQUZVc2ftNIXdbvAoc3dwE1MyDE4vTRiT65oPJbiPra0bN7DEom8FTFocBmhO8QbsMliS5w8HtTKN8n7_PSEfV76BIDxA8kJH99R7H5OH4pBAZzSuqTOWqftZR8z8qaUvYHQckM4uF73sBhk5yROsE4Y6GhbWI0oznMCEwGicGp9zz4Cz6o5MakW6xhpSi7OfWg59VMNpen0YArxf8W0u0YM0mFaXgNTffO6yryVJF1DwVnMudTKUncpLHB9vu-sqiiRKJZd4AY"/>
+<p class="font-headline font-black text-4xl leading-none text-secondary-fixed uppercase">DELIVERED TO YOUR DOOR. FREE.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Get Started: Full Guide -->
+<section class="py-20 relative" id="get-started">
+<div class="absolute -left-20 top-0 text-[170px] font-black text-on-surface/5 select-none pointer-events-none">GET_STARTED</div>
+<div class="max-w-5xl">
+<div class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1 font-headline font-black uppercase text-xs tracking-[0.22em] sticker-rotate-2 mb-5">
+          FULL YSWS GUIDE
+        </div>
+<h2 class="font-headline font-black text-5xl md:text-6xl uppercase mb-5 tracking-tighter flex items-center gap-4">
+          START HERE <span class="h-1 flex-grow bg-on-surface"></span>
+</h2>
+<p class="text-xl text-on-surface-variant max-w-4xl leading-tight">
+          Use this exact flow to go from zero to shipped vinyl. Learn Sonic Pi, compose your track, package your repo, and submit with confidence.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+<article class="bg-surface-container-lowest border-4 border-on-surface p-8 sticker-rotate-neg-2 shadow-[8px_8px_0px_0px_rgba(28,27,27,0.18)]">
+<p class="font-mono text-xs uppercase tracking-[0.18em] text-primary mb-3">Guide 01</p>
+<h3 class="font-headline font-black text-3xl uppercase leading-none mb-5 text-primary">Install + Learn Sonic Pi</h3>
+<ul class="space-y-4 text-on-surface-variant font-medium leading-snug">
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">1</span><span>Install Sonic Pi from the official download page for macOS, Windows, or Linux.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">2</span><span>Work through the built-in tutorial panel and run the code as you read.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">3</span><span>Practice <span class="font-mono">live_loop</span>, <span class="font-mono">sample</span>, <span class="font-mono">use_synth</span>, and <span class="font-mono">sleep</span> until you can build a short groove.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Save your first playable version as <span class="font-mono">main.rb</span> so you have a baseline track.</span></li>
+</ul>
+<div class="mt-8 bg-secondary-container p-4 border-2 border-on-secondary-container/20">
+<p class="font-headline font-bold text-sm uppercase tracking-wider text-on-secondary-container mb-2">Sonic Pi Sites</p>
+<div class="space-y-1.5 text-sm font-bold">
+<a class="block text-secondary underline decoration-wavy" href="https://sonic-pi.net/">sonic-pi.net (download)</a>
+<a class="block text-secondary underline decoration-wavy" href="https://sonic-pi.net/tutorial.html">Official Sonic Pi tutorial</a>
+<a class="block text-secondary underline decoration-wavy" href="https://sonic-pi.mehackit.org/">Mehackit quickstart lessons</a>
+<a class="block text-secondary underline decoration-wavy" href="https://in-thread.sonic-pi.net/">Sonic Pi community forum</a>
+</div>
+</div>
+</article>
+<article class="bg-surface-container-low border-4 border-on-surface p-8 sticker-rotate-1 shadow-[8px_8px_0px_0px_rgba(28,27,27,0.18)]">
+<p class="font-mono text-xs uppercase tracking-[0.18em] text-primary mb-3">Guide 02</p>
+<h3 class="font-headline font-black text-3xl uppercase leading-none mb-5 text-primary">Compose + Export Audio</h3>
+<ul class="space-y-4 text-on-surface-variant font-medium leading-snug">
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">1</span><span>Build a full 60-120 second track with structure: intro, core loop, variation, ending.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">2</span><span>Use comments to label each section so reviewers can follow your arrangement choices.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">3</span><span>Record clean audio from Sonic Pi and export to <span class="font-mono">.wav</span> or high-quality <span class="font-mono">.mp3</span>.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-on-surface text-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Listen once on headphones and once on speakers. Fix clipping, balance levels, and re-export.</span></li>
+</ul>
+<div class="mt-8 bg-on-surface text-secondary-fixed p-4 font-mono text-sm space-y-1">
+<p># tiny starter pattern</p>
+<p>&gt; use_bpm 100</p>
+<p>&gt; live_loop :kick do</p>
+<p class="pl-4">&gt; sample :bd_haus, amp: 1.7</p>
+<p class="pl-4">&gt; sleep 0.5</p>
+<p>&gt; end</p>
+</div>
+</article>
+<article class="bg-on-surface text-surface border-4 border-secondary-fixed p-8 sticker-rotate-neg-2 shadow-[8px_8px_0px_0px_rgba(28,27,27,0.3)]">
+<p class="font-mono text-xs uppercase tracking-[0.18em] text-secondary-fixed mb-3">Guide 03</p>
+<h3 class="font-headline font-black text-3xl uppercase leading-none mb-5 text-secondary-fixed">Package + Submit</h3>
+<ul class="space-y-4 font-medium leading-snug text-surface-variant">
+<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">1</span><span>Create a public GitHub repository with your final Sonic Pi code and exported audio.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">2</span><span>Add a README that explains inspiration, technique, and how to run your track locally.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">3</span><span>Use the Vine example submission layout so your repo is easy to review quickly.</span></li>
+<li class="flex gap-3 items-start"><span class="bg-secondary-fixed text-on-surface px-2 py-0.5 font-black text-xs mt-0.5">4</span><span>Submit the form with your repo link and audio, then wait for pressing and shipping updates.</span></li>
+</ul>
+<div class="mt-8 pt-6 border-t border-secondary-fixed/35 space-y-2">
+<a class="block bg-secondary text-on-secondary text-center py-3 font-headline font-black uppercase text-base hover:scale-[1.01] transition-transform" href="https://forms.fillout.com/t/tZ1CDPD5Brus">Open Submission Form</a>
+<a class="block text-center py-3 border-2 border-secondary-fixed text-secondary-fixed font-headline font-black uppercase text-base hover:bg-secondary-fixed hover:text-on-surface transition-colors" href="https://github.com/N1k0s1/vine-example-submission">See Example Repo</a>
+</div>
+</article>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+<div class="bg-primary-container text-on-primary-container p-8 border-4 border-on-primary-container/30 sticker-rotate-1">
+<h3 class="font-headline font-black text-2xl uppercase mb-4">Final Submission Checklist</h3>
+<div class="space-y-3 font-medium">
+<p>[ ] Public GitHub repo with Sonic Pi code</p>
+<p>[ ] Audio export included and playable</p>
+<p>[ ] README with concept + run instructions</p>
+<p>[ ] Form submitted with correct links</p>
+<p>[ ] Repo is clearly named and organized</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 border-4 border-on-surface sticker-rotate-neg-2">
+<h3 class="font-headline font-black text-2xl uppercase mb-4 text-primary">README Starter Template</h3>
+<div class="bg-on-surface text-secondary-fixed p-4 font-mono text-sm space-y-1 overflow-x-auto">
+<p># Track Title</p>
+<p># Artist: your-name</p>
+<p># Why I made this</p>
+<p># How it works (loops, synths, samples)</p>
+<p># How to run in Sonic Pi</p>
+<p># Audio file: /audio/final_mix.wav</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Showcase Wall -->
+<section class="py-20" id="showcase">
+<div class="bg-secondary p-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-surface text-[120px]">music_note</span>
+</div>
+<h2 class="font-headline font-black text-5xl md:text-7xl uppercase text-surface mb-12 relative z-10">THE WALL OF NOISE</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 relative z-10">
+<!-- Community Track Cards -->
+<div class="wall-track-card bg-surface p-4 sticker-rotate-1 border-2 border-on-surface hover:scale-105 transition-all cursor-pointer group" data-track-file="euclidean_rhythms.rb" data-track-snippet="&gt; live_loop :vine do|&gt; sample :bd_haus, amp: 2|&gt; sleep 0.5|&gt; end" data-track-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-track-title="Euclidean Rhythms">
+<div class="aspect-square bg-primary-container mb-3 flex items-center justify-center">
+<span class="wall-track-play material-symbols-outlined text-surface text-4xl group-hover:scale-110 transition-transform">play_circle</span>
+</div>
+<p class="wall-track-artist font-headline font-bold text-xs uppercase truncate">@jason_codes</p>
+<p class="wall-track-title text-[10px] uppercase opacity-60">"Euclidean Rythms"</p>
+</div>
+<div class="wall-track-card bg-surface p-4 sticker-rotate-neg-2 border-2 border-on-surface hover:scale-105 transition-all cursor-pointer group" data-track-file="recursive_chill.rb" data-track-snippet="&gt; with_fx :reverb do|&gt; sample :drum_bass_soft, amp: 1.5|&gt; sleep 0.75|&gt; end" data-track-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" data-track-title="Recursive Chill">
+<div class="aspect-square bg-secondary mb-3 flex items-center justify-center">
+<span class="wall-track-play material-symbols-outlined text-surface text-4xl group-hover:scale-110 transition-transform">play_circle</span>
+</div>
+<p class="wall-track-artist font-headline font-bold text-xs uppercase truncate">@sarah_pi</p>
+<p class="wall-track-title text-[10px] uppercase opacity-60">"Recursive Chill"</p>
+</div>
+<div class="wall-track-card bg-surface p-4 sticker-rotate-2 border-2 border-on-surface hover:scale-105 transition-all cursor-pointer group" data-track-file="bit_crushed_dreams.rb" data-track-snippet="&gt; use_synth :chipbass|&gt; play_pattern_timed [60, 67, 65], [0.25]|&gt; sample :elec_blip2|&gt; sleep 0.25" data-track-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-track-title="Bit-Crushed Dreams">
+<div class="aspect-square bg-tertiary-container mb-3 flex items-center justify-center">
+<span class="wall-track-play material-symbols-outlined text-surface text-4xl group-hover:scale-110 transition-transform">play_circle</span>
+</div>
+<p class="wall-track-artist font-headline font-bold text-xs uppercase truncate">@clown_face</p>
+<p class="wall-track-title text-[10px] uppercase opacity-60">"Bit-Crushed Dreams"</p>
+</div>
+<div class="wall-track-card bg-surface p-4 sticker-rotate-neg-2 border-2 border-on-surface hover:scale-105 transition-all cursor-pointer group" data-track-file="symmetric_noise.rb" data-track-snippet="&gt; live_loop :noise do|&gt; sample :ambi_glass_hum, rate: rrand(0.7, 1.3)|&gt; sleep 1|&gt; end" data-track-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" data-track-title="Symmetric Noise">
+<div class="aspect-square bg-primary mb-3 flex items-center justify-center">
+<span class="wall-track-play material-symbols-outlined text-surface text-4xl group-hover:scale-110 transition-transform">play_circle</span>
+</div>
+<p class="wall-track-artist font-headline font-bold text-xs uppercase truncate">@dev_null</p>
+<p class="wall-track-title text-[10px] uppercase opacity-60">"Symmetric Noise"</p>
+</div>
+<div class="wall-track-card bg-surface p-4 sticker-rotate-1 border-2 border-on-surface hover:scale-105 transition-all cursor-pointer group hidden lg:block" data-track-file="oscillator_life.rb" data-track-snippet="&gt; use_bpm 110|&gt; synth :prophet, note: :e3, release: 0.4|&gt; sample :drum_snare_soft|&gt; sleep 0.5" data-track-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" data-track-title="Oscillator Life">
+<div class="aspect-square bg-secondary-fixed-dim mb-3 flex items-center justify-center">
+<span class="wall-track-play material-symbols-outlined text-surface text-4xl group-hover:scale-110 transition-transform">play_circle</span>
+</div>
+<p class="wall-track-artist font-headline font-bold text-xs uppercase truncate">@sonic_boom</p>
+<p class="wall-track-title text-[10px] uppercase opacity-60">"Oscillator Life"</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section: Dropdowns -->
+<section class="py-20 max-w-3xl mx-auto" id="faq">
+<h2 class="font-headline font-black text-6xl uppercase mb-12 text-center tracking-tighter">QUESTIONS?</h2>
+<div class="space-y-4">
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>Does it cost anything?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+                        Nope. Zip. Zero. Hack Club is footing the bill for the records, the pressing, and the shipping. You just provide the code & the idea.
+                    </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>Who can join?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+                        Any teenager (13-18) worldwide. If you can code it, we'll try to ship it.
+                    </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>What is Sonic Pi?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+                        It's a code-based music creation and performance tool. It uses Ruby and it's incredibly powerful for algorithmic composition.
+                    </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>How long do I have?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+                        Vine is a limited-run YSWS. We have a set number of records to press. Once we hit our limit, we close submissions. Ship fast!
+                    </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>Can I work in a team?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+            Submit individually by default. If team entries open officially, Vine will publish updated rules.
+          </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>Can I double-dip with other Hack Club events?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+            Usually no. Keep your Vine submission to this event unless both programs explicitly allow overlap.
+          </div>
+</details>
+<details class="group bg-surface-container-low border-4 border-on-surface open:bg-secondary-container transition-colors">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline font-black text-xl uppercase">
+<span>What exactly is required in my submission?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant font-medium">
+            Include a public GitHub repo with your Sonic Pi code, an audio export of your track, and a README that explains your song idea!
+          </div>
+</details>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-20 mb-20 text-center relative">
+<div class="absolute inset-0 bg-primary-container -skew-y-2 z-0"></div>
+<div class="relative z-10 py-16 px-6">
+<h2 class="font-headline font-black text-5xl md:text-8xl text-on-primary-container uppercase mb-8 tracking-tighter">STOP READING. <br/> START CODING.</h2>
+<a class="inline-block bg-on-primary-container text-primary-container px-12 py-6 text-3xl font-headline font-black uppercase hover:scale-110 hover:-rotate-2 transition-all shadow-[10px_10px_0px_0px_#1c1b1b]" href="https://forms.fillout.com/t/tZ1CDPD5Brus">
+                    GET YOUR VINYL 🌿
+                </a>
+</div>
+</section>
+<!-- Idea Generator -->
+<section class="py-20 mb-10" id="idea-generator">
+<div class="bg-on-surface text-surface p-8 md:p-12 border-t-8 border-secondary-fixed shadow-[12px_12px_0px_0px_rgba(28,27,27,0.3)] sticker-rotate-neg-2 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-36 h-36 bg-secondary-fixed/20 rounded-full"></div>
+<div class="absolute -left-10 -bottom-12 w-40 h-40 bg-primary/20 rounded-full"></div>
+<div class="relative z-10 max-w-4xl">
+<p class="font-mono text-xs uppercase tracking-[0.2em] text-secondary-fixed mb-4">Creative Prompt Engine</p>
+<h2 class="font-headline font-black text-4xl md:text-6xl uppercase tracking-tighter text-secondary-fixed mb-4">Need an Idea? Spin One.</h2>
+<p class="text-surface-variant text-lg md:text-xl max-w-2xl">Click once for a project prompt you can build into a Sonic Pi submission.</p>
+<div class="mt-8 bg-surface-container-low text-on-surface p-6 border-4 border-secondary-fixed min-h-40 md:min-h-44 flex flex-col justify-between gap-4">
+<p class="font-headline font-bold text-2xl md:text-3xl leading-tight" id="idea-generator-output">Generate an idea to get your next track concept.</p>
+<p class="font-mono text-sm uppercase tracking-wider text-primary" id="idea-generator-flavor">Tip: reroll until something sounds weird enough to try.</p>
+</div>
+<div class="mt-6 flex flex-wrap gap-4 items-center">
+<button class="bg-secondary text-on-secondary px-8 py-4 font-headline font-black uppercase text-lg hover:scale-[1.03] active:scale-95 transition-transform shadow-[6px_6px_0px_0px_rgba(12,32,0,0.35)] flex items-center gap-2" id="generate-idea-button" type="button">
+<span class="material-symbols-outlined">auto_awesome</span>
+              Generate Idea
+            </button>
+<p class="text-sm uppercase tracking-[0.12em] text-surface-variant">Each click creates a new mix of vibe, constraint, and twist.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#e5e2e1] w-full mt-20 border-t-4 border-[#C6463D]">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6 max-w-[1440px] mx-auto">
+<div class="text-lg font-black text-stone-900 font-headline uppercase tracking-widest">
+                VINE <span class="text-primary italic">BY HACK CLUB</span>
+</div>
+<div class="flex gap-8 font-['Be_Vietnam_Pro'] text-sm font-bold uppercase tracking-widest">
+<a class="text-stone-500 hover:text-[#436824] hover:italic transition-all hover:translate-y-[-2px]" href="https://github.com/hackclub/vine">GitHub</a>
+<a class="text-stone-500 hover:text-[#436824] hover:italic transition-all hover:translate-y-[-2px]" href="https://hackclub.com/slack">Discord</a>
+<a class="text-stone-500 hover:text-[#436824] hover:italic transition-all hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-stone-500 hover:text-[#436824] hover:italic transition-all hover:translate-y-[-2px]" href="#">Terms</a>
+</div>
+<div class="text-stone-500 font-bold uppercase text-[10px] tracking-widest">
+                © 2026 Vine
+            </div>
+</div>
+</footer>
+<button aria-label="Mute audio" class="fixed right-4 md:right-6 bottom-24 md:bottom-6 z-[60] bg-on-surface text-secondary-fixed px-4 py-3 font-headline font-black uppercase tracking-wide border-2 border-secondary-fixed hover:scale-105 active:scale-95 transition-transform shadow-[6px_6px_0px_0px_rgba(28,27,27,0.3)] flex items-center gap-2" id="mute-audio-button" type="button">
+<span class="material-symbols-outlined text-base" id="mute-audio-icon">volume_up</span>
+<span class="text-xs md:text-sm" id="mute-audio-label">MUTE</span>
+</button>
+<!-- Bottom Nav for Mobile -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t-4 border-primary z-50 flex justify-around p-4 shadow-2xl">
+<a class="flex flex-col items-center gap-1 text-primary" href="#get-started">
+<span class="material-symbols-outlined">help</span>
+<span class="text-[10px] font-black uppercase">Start</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500" href="#showcase">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-black uppercase">Showcase</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-500" href="https://forms.fillout.com/t/tZ1CDPD5Brus">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+<span class="text-[10px] font-black uppercase">Ship</span>
+</a>
+</div>
+<script>
+  (function() {
+    const container = document.getElementById('vinyl-container');
+    const disc = document.getElementById('vinyl-disc');
+    let isDragging = false;
+    let startAngle = 0;
+    let currentRotation = 0;
+    let spinAnimation = null;
+
+    function startSpin(fromAngle) {
+      if (spinAnimation) spinAnimation.cancel();
+      spinAnimation = disc.animate(
+        [
+          { transform: `rotate(${fromAngle}deg)` },
+          { transform: `rotate(${fromAngle + 360}deg)` }
+        ],
+        {
+          duration: 10000,
+          iterations: Infinity,
+          easing: 'linear'
+        }
+      );
+    }
+
+    function getAngle(x, y) {
+      const rect = container.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      return Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+    }
+
+    function getCurrentRotation(el) {
+      const st = window.getComputedStyle(el, null);
+      const tr = st.getPropertyValue("transform");
+      if (tr === "none") return 0;
+      const values = tr.split('(')[1].split(')')[0].split(',');
+      const a = values[0];
+      const b = values[1];
+      return Math.round(Math.atan2(b, a) * (180 / Math.PI));
+    }
+
+    startSpin(0);
+
+    container.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      container.classList.add('is-dragging');
+      container.setPointerCapture(e.pointerId);
+      currentRotation = getCurrentRotation(disc);
+      if (spinAnimation) spinAnimation.pause();
+      disc.style.transform = `rotate(${currentRotation}deg)`;
+      startAngle = getAngle(e.clientX, e.clientY) - currentRotation;
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      const angle = getAngle(e.clientX, e.clientY);
+      currentRotation = angle - startAngle;
+      disc.style.transform = `rotate(${currentRotation}deg)`;
+    });
+
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      container.classList.remove('is-dragging');
+      startSpin(currentRotation);
+    }
+
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    window.addEventListener('blur', endDrag);
+
+    container.addEventListener('dragstart', (e) => {
+      e.preventDefault();
+    });
+  })();
+</script></body></html>

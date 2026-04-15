@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 #c3f09b;
+  top: 0;
+  color: #a52e28;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  z-index: -1;
+}
+
+.vine-border {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L10 10 L20 20 L30 10 L40 20' stroke='%23436824' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  height: 10px;
+}
+
+.noise-bg {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtxpTEYzzlWWAN9SKPJ4LpNANFrL06V7BK1bceMK7tLioYcKlCV3LvxjWXJZU3e_dIxxZpHSVvnzzfiB8SGOZooF2LIcvLepHduRLy1679zBXQpDkozrBccaOTYNaDRWW_tJ4vL8pU5zqQRrafGyfzQMN3IxfHSgatZ4iCAYq1PUb4k4x_lNBiaNhxcNhRtMm1zMKyYzuaZHAs68fsNHJmNjKXVRhpbxsH_gqNUJPdWkVeu4tGZ9mqN3OUnRYx8nVvp0TsuPZWagA");
+}
+
+.sticker-rotate-1 {
+  transform: rotate(-1deg);
+}
+
+.sticker-rotate-2 {
+  transform: rotate(2deg);
+}
+
+.sticker-rotate-neg-2 {
+  transform: rotate(-2.5deg);
+}
+
+#vinyl-disc {
+  --vinyl-x: 50%;
+  --vinyl-y: 50%;
+  --vinyl-r: 45%;
+  --vinyl-label-size: 23%;
+  clip-path: circle(var(--vinyl-r) at var(--vinyl-x) var(--vinyl-y));
+  transform-origin: var(--vinyl-x) var(--vinyl-y);
+  will-change: transform;
+}
+
+#vinyl-label {
+  width: var(--vinyl-label-size);
+  height: var(--vinyl-label-size);
+  left: var(--vinyl-x);
+  top: var(--vinyl-y);
+  transform: translate(-50%, -50%);
+}
+
+.is-dragging #vinyl-disc {
+  animation-play-state: paused !important;
+}
+
+#player-progress-track {
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#player-progress-bar {
+  width: 0%;
+  transition: width 120ms linear;
+}
+
+.is-dragging #player-progress-bar {
+  transition: none;
+}
+
+.wall-track-card {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.wall-track-card:focus-visible {
+  outline-color: #c3f09b;
+}
+
+.wall-track-card.is-now-playing {
+  outline-color: #a52e28;
+  box-shadow: 6px 6px 0 0 rgba(28, 27, 27, 0.35);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.wall-track-card.is-now-playing .wall-track-play {
+  animation: wall-track-pulse 0.95s ease-in-out infinite;
+}
+
+#vinyl-container.is-playing #vinyl-label {
+  animation: label-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes wall-track-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.88;
+  }
+
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes label-pulse {
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.2);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
